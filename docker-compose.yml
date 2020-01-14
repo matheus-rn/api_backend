@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  db:
+    container_name: db
+    restart: always
+    image: postgres
+    environment:
+      POSTGRES_DB: db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - api-backend
+
+networks:
+  api-backend:
+    external:
+      name: api-backend    
